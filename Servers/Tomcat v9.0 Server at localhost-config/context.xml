@@ -16,15 +16,13 @@
   limitations under the License.
 --><!-- The contents of this file will be loaded for each web application --><Context antiResourceLocking="false" crossContext="true" privileged="true" reloadable="true">
 
-    <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/TestDB" password="123456" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="CEA101"/>
-	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/TestENAK" password="123456" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="TSAI"/>
-    <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/CEA101G5" password="123456" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="CEA101G5"/>
+    <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/CEA101G5" username="CEA101G5" password="123456" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE"/>
+
     <!-- Default set of monitored resources. If one of these changes, the    -->
     <!-- web application will be reloaded.                                   -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
     <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
-    
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--

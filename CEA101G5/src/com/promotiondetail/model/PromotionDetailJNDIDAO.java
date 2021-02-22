@@ -70,9 +70,20 @@ public class PromotionDetailJNDIDAO implements PromotionDetailDAO_Interface {
 	 
 	@Override
 	public PromotionDetailVO getOne(String productId) {
-		// Method Not Used In Deployment //
-		PromotionDetailVO promotionDetailVO = new PromotionDetailVO();
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		PromotionDetailVO promotionDetailVO = null;
+		
+		try {
+			session.beginTransaction();
+			promotionDetailVO = session.get(PromotionDetailVO.class, new PromotionDetailVO(1, productId));
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+		}
+		
 		return promotionDetailVO;
+		
 	}
 	
 	@Override
